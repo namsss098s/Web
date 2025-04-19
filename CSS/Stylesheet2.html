@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylesheet 2</title>
+    <style>
+        body {
+            background-color: lightcoral;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #b22222;
+            color: white;
+            padding: 20px;
+            text-align: left;
+            margin-top: 0;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        section {
+            background-color: #f8d7da;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        aside {
+            background-color: #f8d7da;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #b22222;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .list-button {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background-color: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+
+        }
+
+        .list-button ul {
+            list-style: none;
+            padding: 10px;
+            margin: 10px;
+
+        }
+
+        .list-button ul li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #b22222;
+            border: none solid 1px;
+            border-radius: 10px;
+        }
+
+        .list-button ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .list-button ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to My Homepage</h1>
+        <p>Use the menu to select different Stylesheets</p>
+    </header>
+    <main>
+        <section>
+            <h2>Same Page Different Stylesheets</h2>
+            <p>
+                This is a demonstration of how different stylesheets can change the layout of your HTML page.
+                You can change the layout of this page by selecting different stylesheets in the menu, or by selecting
+                one of the following links:
+                <a href="Stylesheet1.html">Stylesheet1</a>,
+                <a href="Stylesheet2.html">Stylesheet2</a>,
+                <a href="Stylesheet3.html">Stylesheet3</a>,
+                <a href="Stylesheet4.html">Stylesheet4</a>,
+            </p>
+            <h3>No Styles</h3>
+            <p>
+                This page uses DIV elements to group different sections of the HTML page.
+                Click here to see how the page looks like with no stylesheet:
+                <a href="Nostylesheet.html">No Stylesheet</a>.
+            </p>
+        </section>
+        <aside>
+            <h3>Side-Bar</h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat.
+            </p>
+        </aside>
+    </main>
+    <footer>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+            dolore magna aliquam erat volutpat.
+        </p>
+    </footer>
+
+    <div class="list-button">
+        <ul>
+            <li><a href="Stylesheet1.html">Stylesheet1</a></li>
+            <li style="background-color: #00c851; color: white;"><a href="Stylesheet2.html">Stylesheet2</a></li>
+            <li><a href="stylesheet3.html">Stylesheet3</a></li>
+            <li><a href="stylesheet4.html">Stylesheet4</a></li>
+            <li><a href="Nostylesheet.html">Nostylesheet</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

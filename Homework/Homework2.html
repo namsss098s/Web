@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Table design</title>
+    <style>
+      table,
+      th,
+      td {
+        height: 30px;
+        text-align: center;
+        width: auto;
+        margin: auto;
+        border: 2px solid black;
+        border-collapse: collapse;
+        vertical-align: center;
+        padding: 5px;
+      }
+      .show-btn {
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+      .user-image {
+        width: 50px;
+        height: 50px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <table
+      style="
+        width: 100%;
+        font-family: 'Times New Roman', Times, sans-serif;
+        font-size: 110%;
+      "
+    >
+      <thead>
+        <tr style="background-color: rgb(28, 255, 255)">
+          <th colspan="6">Responsive Table Design</th>
+        </tr>
+        <tr style="background-color: rgb(0, 119, 255); color: white">
+          <th>No.</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Lê Hoàng An</td>
+          <td>Lê Hoàng An@gmail.com.vn</td>
+          <td>Admin</td>
+          <td>Active</td>
+          <td>
+            <a href = "#" class="show-btn" onclick="toggleImage(this)">Click to show image</a>
+            <img
+              class="user-image"
+              src="https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-6/486787774_122164678298341936_4738318967069038512_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEFE5NW-Sd0Vr7nbdb3I8HcP3bhtKgmTWU_duG0qCZNZVE72vEsBE4AjFvL8bu-1eaeJuj5AL-lGrTAFcbfk1YP&_nc_ohc=HCQRa9pruOUQ7kNvgEbuzVo&_nc_oc=AdkG86ShCBO-Zazj8mrHhhU3DLO6up0_Vzlb16_xPS3sYIiF7Tmsxy5Yet4VWKdueY4&_nc_zt=23&_nc_ht=scontent.fhan14-5.fna&_nc_gid=ITy5ZtXwcFB4NrrzU3FA-w&oh=00_AYEJiDGgefseSgaRRRH6iknCauddUkjUfX31OxwpuebbfA&oe=67EC69D5"
+              alt="Lê Hoàng An"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Chu Quốc Chiến</td>
+          <td>Chu Quốc Chiến@gmail.com.vn</td>
+          <td>Editor</td>
+          <td>Pending</td>
+          <td>
+            <a href = "#" class="show-btn" onclick="toggleImage(this)">Click to show image</a>
+            <img
+              class="user-image"
+              src="https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-6/487310829_122164677392341936_6022628019957629215_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHSI1A4NhNPHQcr9hD6CvLaAuxzM0FDrXcC7HMzQUOtd80GlNr-wHyFTtlwh2G9nlKdT7Qct5NI94gMUpTXFjU-&_nc_ohc=0ztKtbk2W7kQ7kNvgHt7uXT&_nc_oc=AdnlvDIZZwq2TEzrks2yu6rKBo8tx7D3zt1N2Lt71fVKbBGnoGWZOsMGOi2rFzjlEyg&_nc_zt=23&_nc_ht=scontent.fhan14-5.fna&_nc_gid=jKpGNGXPuXvZkcNBSABSuA&oh=00_AYHLkyxOemJKep7wjQmSUx-bsaM_PF63Ewz4XqTov-MmIw&oe=67EC6C24"
+              alt="Chu Quốc Chiến"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Nguyễn Đình Chính</td>
+          <td>Nguyễn Đình Chính@gmail.com.vn</td>
+          <td>Subscriber</td>
+          <td>Inactive</td>
+          <td>
+            <a href = "#" class="show-btn" onclick="toggleImage(this)">Click to show image</a>
+            <img
+              class="user-image"
+              src="https://scontent.fhan14-3.fna.fbcdn.net/v/t39.30808-6/487427474_122164677458341936_5536198015957446765_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeF_45P569hE2_OLMPx1QY-bF7Dmtj29M-MXsOa2Pb0z4-vyyIQ6U3E3BhJGMXYI7N0SraNuDUFfpeVRphstzPkf&_nc_ohc=VVC7ucgsR4YQ7kNvgFTVFzS&_nc_oc=Adne9TS9KfeZZDZmTdW8sGdQyy9M2NXKb_ufKQJHG8EGC7ZBnzO0qo6h_C0RHU54p20&_nc_zt=23&_nc_ht=scontent.fhan14-3.fna&_nc_gid=ULUNqS7PoaQ3oxclHTJqHA&oh=00_AYHb98Us89dCRt6JS5JT9AOU_WslcBPOdxLcSLseMJVNpQ&oe=67EC9429"
+              alt="Nguyễn Đình Chính"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Hoàng Quốc Cường</td>
+          <td>Hoàng Quốc Cường@gmail.com.vn</td>
+          <td>Author</td>
+          <td>Active</td>
+          <td>
+            <a href = "#" class="show-btn" onclick="toggleImage(this)">Click to show image</a>
+            <img
+              class="user-image"
+              src="https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-6/487128984_122164677422341936_8269762611819427912_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFiQ-9SjowpypWM_VgP3OzzVa7XELoRNZFVrtcQuhE1kW0qLvihdLtg9hg3MPbRC7t2UmFWWSoshSrZjXj0SUoO&_nc_ohc=UwmzWVEHeuEQ7kNvgHiqpju&_nc_oc=AdkFpZL8by9lTIF9q52N_K87znIxyTmj5_QgMLJPvV85LRpOtuQ-VudY5hgtQu0y-_c&_nc_zt=23&_nc_ht=scontent.fhan14-5.fna&_nc_gid=mgIORbH8gf_iLdl8LPYFBQ&oh=00_AYGZiKJXqeJEdhfLl5_fu7GHBQndJ5clAedj5zirzlxRaw&oe=67EC6769"
+              alt="Hoàng Quốc Cường"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Hoàng Tuấn Dương</td>
+          <td>Hoàng Tuấn Dương@gmail.com.vn</td>
+          <td>Admin</td>
+          <td>Active</td>
+          <td>
+            <a href = "#" class="show-btn" onclick="toggleImage(this)">Click to show image</a>
+            <img
+              class="user-image"
+              src="https://scontent.fhan14-1.fna.fbcdn.net/v/t39.30808-6/487516331_122164677494341936_3215518668937448985_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEM6zHzLwMPORcSoam457ywQtBt6GdeH1dC0G3oZ14fVyUJtYEkjJbh8jNj7wmqHogcKT6GYIKwMQBEsIK1skGM&_nc_ohc=HHxcDnButxkQ7kNvgHTc1R3&_nc_oc=AdkMgbiOpzjPGxH8n0pKtTLw_UEvgw8LjVtlV4OukSqixTjliiZ3bwAAcP6JL2T_OZw&_nc_zt=23&_nc_ht=scontent.fhan14-1.fna&_nc_gid=rhzAQ0EICQxElplkv5b08A&oh=00_AYHeMn0k6H5toy1-5bnVXdBYdm8dlIdyMhkQLkb_5L1i7w&oe=67EC771B"
+              alt="Hoàng Tuấn Dương"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Lê Đức Hải</td>
+          <td>Lê Đức Hải@gmail.com.vn</td>
+          <td>Editor</td>
+          <td>Pending</td>
+          <td>
+            <a href = "#" class="show-btn" onclick="toggleImage(this)">Click to show image</a>
+            <img
+              class="user-image"
+              src="https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-6/486903335_122164677578341936_117358288075450391_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFOlFe2LmF7SJlsZHzpR7s_l11aTvGqDiuXXVpO8aoOK4nR-e8kwoSW8kSwNYJU8NyyUpssMaobyDkT0xnwQFS0&_nc_ohc=vuYYP4Vy-ToQ7kNvgHlEcJR&_nc_oc=Adn9Kwf_9xfLCDdnTD1d4n6u-b4rPqijeHLNd-klXUkBVWuw6heEfhvtNpcXr_EjsCQ&_nc_zt=23&_nc_ht=scontent.fhan14-5.fna&_nc_gid=YGboo-8SQMbZP6OG6XzMRA&oh=00_AYFeyhMYF6Drs9vDh3akOZojS7KkZajo5mgMg6pJwPAgew&oe=67EC7900"
+              alt="Lê Đức Hải"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Đinh Khắc Hạnh</td>
+          <td>Đinh Khắc Hạnh@gmail.com.vn</td>
+          <td>Subscriber</td>
+          <td>Inactive</td>
+          <td>
+            <a href = "#" class="show-btn" onclick="toggleImage(this)">Click to show image</a>
+            <img
+              class="user-image"
+              src="https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-6/487223932_122164677548341936_2662944427496146462_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEwvBLqeL742h_l5HfQ-N-iISR7_YPDwOchJHv9g8PA511PFnXphoWFhIh32cqSU4w2p8iC0s77G7F8XCuZWsKS&_nc_ohc=KoHbqsk2_EcQ7kNvgFt6w6X&_nc_oc=Adm2LgUEmMtADbbn-WIawtVOGHY7lLMbV_bu6JxgFVT7dH6A4HwVPi6U8YSWXmFR12g&_nc_zt=23&_nc_ht=scontent.fhan14-5.fna&_nc_gid=eWZgwwKJgSWWowB535o5YA&oh=00_AYE1dLI62ug9wTSBkYSDHhDif57LUpgLuOes_W1s32nedg&oe=67EC6027"
+              alt="Đinh Khắc Hạnh"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Đặng Bảo Hoàng</td>
+          <td>Đặng Bảo Hoàng@gmail.com.vn</td>
+          <td>Author</td>
+          <td>Active</td>
+          <td>
+            <a href = "#" class="show-btn" onclick="toggleImage(this)">Click to show image</a>
+            <img
+              class="user-image"
+              src="https://scontent.fhan14-1.fna.fbcdn.net/v/t39.30808-6/487249357_122164677686341936_2126888496950239962_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGQRdoNZAwfg1DghG6f0-_ojJ87JOl5Q7uMnzsk6XlDuyv5OnhCcpgX9FjEghLzakJw4oQBD9Nhi2R8ZmuKfmQH&_nc_ohc=LqCNADcjZMUQ7kNvgG0A6L0&_nc_oc=Adm1RVHy21ZmL-P8EJsWoWguLnp-FzEgw7czrqrkE7A-rEFXEzi_-0RPk7k7rLKsFHg&_nc_zt=23&_nc_ht=scontent.fhan14-1.fna&_nc_gid=6NejVhgdQq7zKDGjZXPNYA&oh=00_AYFbJibCQ6JwnFUZ4vbFtb1dMfx5FLYZN22Rhrgrz7ncgg&oe=67EC76C9"
+              alt="Đặng Bảo Hoàng"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Hoàng Phi Hùng</td>
+          <td>Hoàng Phi Hùng@gmail.com.vn</td>
+          <td>Admin</td>
+          <td>Active</td>
+          <td>
+            <a href = "#" class="show-btn" onclick="toggleImage(this)">Click to show image</a>
+            <img
+              class="user-image"
+              src="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.6435-9/88166267_511957289696100_2757509239009181696_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=94e2a3&_nc_eui2=AeH8GKAPocQXiOrQDoC7SYeUWPFYRdUvGQVY8VhF1S8ZBRCuuOP4QMbE0vjw6YHpB9k-o0TlmK8U9kXE1OMhbCTB&_nc_ohc=t2998AOYFckQ7kNvgGX7GAe&_nc_oc=AdlmxLWnQ3UfcOZRlXf0b3mor-nix-DhkLma6EFU61a5XwWrbFwnN2rvDCgRW3Wz8zM&_nc_zt=23&_nc_ht=scontent.fhan14-3.fna&_nc_gid=qOvGFeJO5ZxF6c2raHa-qA&oh=00_AYHVJvqruXQDHuHrafWA3tQGHH0SXnMc0r1hR6bMaztcRQ&oe=680E1B24"
+              alt="Hoàng Phi Hùng"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Hoàng Văn Kết</td>
+          <td>Hoàng Văn Kết@gmail.com.vn</td>
+          <td>Editor</td>
+          <td>Pending</td>
+          <td>
+            <a href = "#" class="show-btn" onclick="toggleImage(this)">Click to show image</a>
+            <img
+              class="user-image"
+              src="https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-6/487288795_122164677746341936_824376991913571500_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGzg8avvGbNgu40_2I0CE8h7fBAwea3hDjt8EDB5reEOMELNdAhellUOaCyePWqG8wQe_xbEpMfhFcOZNO74DnJ&_nc_ohc=ku0b2ab2ujYQ7kNvgHecYoA&_nc_oc=Adlm1N2vuJxoETp4RN1EZejAT7e-Xe2V3x1rSZxHLVIK0E99xN2P_Rdeptol6POc3OU&_nc_zt=23&_nc_ht=scontent.fhan14-2.fna&_nc_gid=NmcNXWSOnp7vL5Gg5j5s6g&oh=00_AYEhIHlQww7LDqe4KhcE3f-Iu_2MGr_5D-B_4gySn4S7nA&oe=67EC931D"
+              alt="Hoàng Văn Kết"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>Nguyễn Trung Kiên</td>
+          <td>Nguyễn Trung Kiên@gmail.com.vn</td>
+          <td>Subscriber</td>
+          <td>Inactive</td>
+          <td>
+            <a href = "#" class="show-btn" onclick="toggleImage(this)">Click to show image</a>
+            <img
+              class="user-image"
+              src="https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-6/487297933_122164677968341936_8268113454676799995_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEEOTgCx4MDX-0eNnLq-jIqjgHp2VkPK-iOAenZWQ8r6B98joeNf5KevDvBrzPKmlyNYttu44FMC72M2wv5mpWQ&_nc_ohc=hvyrmCzUXlUQ7kNvgFXQ1rt&_nc_oc=AdkIBtNiLL50X7Q7G1hbqVwrGXph492fDj3ouFDZfM19s2mR70q0-7ysnKacC9vThDQ&_nc_zt=23&_nc_ht=scontent.fhan14-5.fna&_nc_gid=OVD2vld91DLIIRWi438CGg&oh=00_AYG9LvZU3BR6GSg8BSXplaajnI6UEw_7XycvFbe8D4HuTg&oe=67EC688E"
+              alt="Nguyễn Trung Kiên"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>Vũ Phùng Trung Kiên</td>
+          <td>Vũ Phùng Trung Kiên@gmail.com.vn</td>
+          <td>Author</td>
+          <td>Active</td>
+          <td>
+            <a href = "#" class="show-btn" onclick="toggleImage(this)">Click to show image</a>
+            <img
+              class="user-image"
+              src="https://scontent.fhan14-3.fna.fbcdn.net/v/t39.30808-6/487380156_122164678190341936_2120390389175964756_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeH-E9rbCp7T44SnuCEummFtP1H00Dv-XHw_UfTQO_5cfAestVFjA1PqwhUdz8GlfV40ccl_R8G1qQWxTwbVphLs&_nc_ohc=QsDYpEp5qnsQ7kNvgHnyV2u&_nc_oc=AdmTO3oq2NdRb_l03GZMCkvOuCIDpeiCX4QMq2LVy4euaFUDLOFpAt2L0UfRxJV0kek&_nc_zt=23&_nc_ht=scontent.fhan14-3.fna&_nc_gid=OeqWhPAFXYhCD_-xUTT97g&oh=00_AYHLI1WixDl2RMRryP46NVWGXKdCsii4W_gSMvsqebYOFA&oe=67EC7679"
+              alt="Vũ Phùng Trung Kiên"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>Nguyễn Tiến Long</td>
+          <td>Nguyễn Tiến Long@gmail.com.vn</td>
+          <td>Admin</td>
+          <td>Active</td>
+          <td>
+            <a href = "#" class="show-btn" onclick="toggleImage(this)">Click to show image</a>
+            <img
+              class="user-image"
+              src="https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-6/487297004_122164677818341936_1084232028346443300_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeG-P_DkRw88EVlW8SURAGMODl5WY-H8HgoOXlZj4fweCpxLpjxDWxbmR3ZVYyRSfRbLfEgjZTODuQxeQO2EFLxM&_nc_ohc=PHlrP4uzLRoQ7kNvgGLWKf8&_nc_oc=AdmOM2zP7qiHxHkdRXt_jgVf83Bkh0ZtaySpMwQ9yJAaG2pLES49PdEjYey7KgabRJo&_nc_zt=23&_nc_ht=scontent.fhan14-5.fna&_nc_gid=1F0xGn9o5WpCFV6HjSXW5Q&oh=00_AYHYwKgWGvZQ7MyADERZ_ZkEdDyiqJVfA6kSa2eoWFyhgg&oe=67EC780A"
+              alt="Nguyễn Tiến Long"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>Trần Phát Lộc</td>
+          <td>Trần Phát Lộc@gmail.com.vn</td>
+          <td>Editor</td>
+          <td>Pending</td>
+          <td>
+            <a href = "#" class="show-btn" onclick="toggleImage(this)">Click to show image</a>
+            <img
+              class="user-image"
+              src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-6/486492536_122164677866341936_5288834210732766273_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeF5WqIa3KryCAiS5ZrsoZ_EBb50c5WgYbUFvnRzlaBhtZ5X_7IwFQ3t229ojFQXWLPG-qW0UeYcM4nq_NhBhbze&_nc_ohc=4-PJ3hsoyYkQ7kNvgG063rF&_nc_oc=AdndBR_lJehn3QYDChwBB5aw-KnxEtf86ZV2Qb9hRBnbdi5HgYWeVz_JUVoY6PJ2JgA&_nc_zt=23&_nc_ht=scontent.fhan14-4.fna&_nc_gid=bTCvmrJU3MRp-z9tyzmvqw&oh=00_AYGnK6yAaWPPlJcPRqwmwNXkKzVAxNyRpOYMqowDKMY5SQ&oe=67EC6C47"
+              alt="Trần Phát Lộc"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>Trần Hoàng Nam</td>
+          <td>Trần Hoàng Nam@gmail.com.vn</td>
+          <td>Admin</td>
+          <td>Inactive</td>
+          <td>
+            <a href = "#" class="show-btn" onclick="toggleImage(this)">Click to show image</a>
+            <img
+              class="user-image"
+              src="https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-6/481238153_1173558084427962_5883927785355090563_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHu8_aZDPdMVsXzEdl-oiJzRhfcxBeZ4NVGF9zEF5ng1S25VqL4w7-IRRG_uWoxj6M_Mbv6hEauw56v78Q_z25e&_nc_ohc=eOTsgH3HZhUQ7kNvgFGwznf&_nc_oc=AdnjznZP7OifhRi6H5lj0CnyupXmhR3Jy5gkgHEJbw0-BPQugAODplFRWtb6srV2CCs&_nc_zt=23&_nc_ht=scontent.fhan14-5.fna&_nc_gid=0zGEna2G1b9dvHCzlW6kgQ&oh=00_AYGvDK137A9V1or_2mt1ZWjjqI8RLyk2HZAayUWR5sgoCw&oe=67EC6B23"
+              alt="Trần Hoàng Nam"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>Trần Anh Quốc</td>
+          <td>Trần Anh Quốc@gmail.com.vn</td>
+          <td>Editor</td>
+          <td>Active</td>
+          <td>
+            <a href = "#" class="show-btn" onclick="toggleImage(this)">Click to show image</a>
+            <img
+              class="user-image"
+              src="https://scontent.fhan14-1.fna.fbcdn.net/v/t39.30808-6/487312505_122164678100341936_6550045561708331897_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeE13mJhnR2V-VkPo4y6XKnA2Tc0yd_oWc7ZNzTJ3-hZzujGBMbiXM7QGs6JEHoKdybp4v0sLCVqWGAo9ZuxD0wD&_nc_ohc=_ja6E62ITWUQ7kNvgHq24Xb&_nc_oc=Adm0Z51pigD-tAPNbcFquFBKytcttjguv1D0Ov21wgRgwOoXSC1M3hLlzYYdP_C64BE&_nc_zt=23&_nc_ht=scontent.fhan14-1.fna&_nc_gid=OKO52E04fp8vrIk16HrbZA&oh=00_AYHwQ8ZmCNLQiN2fQqa1ZkGULSo0jVk-z-FCuNeHH1DI6g&oe=67EC80F2"
+              alt="Trần Anh Quốc"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td>Lại Minh Thắng</td>
+          <td>Lại Minh Thắng@gmail.com.vn</td>
+          <td>Subscriber</td>
+          <td>Active</td>
+          <td>
+            <a href = "#" class="show-btn" onclick="toggleImage(this)">Click to show image</a>
+            <img
+              class="user-image"
+              src="https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-6/487765674_122164678028341936_1052964825518668687_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFWAoe6EpDVuTeYPn7tZzG2C0B3dGonGqYLQHd0aicapilSdamSfQvUv9MFYWk_lCgPgAXPYE-BVjZAaJlSBi-Z&_nc_ohc=8rZPuLCQzF8Q7kNvgF3uWFg&_nc_oc=AdlBrO6jieVIp34UuSLFaTETzKsGBbjP-Av3ILOu2wvV5AsCbWPdjKumdcNy6UF5QaU&_nc_zt=23&_nc_ht=scontent.fhan14-5.fna&_nc_gid=Owbvpfz7uNUzRW8Ax0lnOA&oh=00_AYHpQW0h5TkIWN_JM3GCtn3DVGiQfVamROPToAM06Ufs1g&oe=67EC889E"
+              alt="Lại Minh Thắng"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td>Hà Văn Vinh</td>
+          <td>Hà Văn Vinh@gmail.com.vn</td>
+          <td>Author</td>
+          <td>Pending</td>
+          <td>
+            <a href="#" class="show-btn" onclick="toggleImage(this)">Click to show image</a>
+            <img
+              class="user-image"
+              src="https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-6/487214994_122164678064341936_28920936717298144_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeExp_sCNAoGX_5cncwI3bLZpxTyk4yLvlSnFPKTjIu-VNznONLFko6DiEo--emvbXYvo2e1jkz2AgTKteVimGR5&_nc_ohc=0Ax6F6qxGJgQ7kNvgEILlu8&_nc_oc=AdmcnnaouW0aFZ7U3MLQDMj9D3ql7XdIMIZni__jNmftVhnc4RwT1Ch8OhpoPAd39hc&_nc_zt=23&_nc_ht=scontent.fhan14-5.fna&_nc_gid=X4tiiSNv4eCjdd3uIF54cw&oh=00_AYE-4XuJqXk_tyYR9BUU9OLkmfqfWT_uldfOoYOXNhFHKg&oe=67EC7914"
+              alt="Hà Văn Vinh"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      function toggleImage(button) {
+        const image = button.nextElementSibling;
+        if (image.style.display === "none" || !image.style.display) {
+          image.style.display = "inline";
+          button.textContent = "Click to hide image";
+        } else {
+          image.style.display = "none";
+          button.textContent = "Click to show image";
+        }
+      }
+    </script>
+  </body>
+</html>

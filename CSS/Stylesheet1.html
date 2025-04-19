@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Test</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: large;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #3f8f52;
+            color: white;
+            padding: 10px;
+            text-align: left;
+            margin-top: 0;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            float: left;
+            width: 20%;
+            background: #f1f1f1;
+            padding: 10px;
+            margin: 10px;
+            display: list-item;
+
+        }
+
+        form a {
+            display: inline-block;
+            width: 90%;
+            text-align: left;
+            background: #f1f1f1;
+            color: #000000;
+            margin-bottom: 10px;
+            font-weight: bold;
+            border: #ccc solid 1px;
+            padding: 7px;
+        }
+
+        form a:hover {
+            background: #3f8f52;
+            color: white;
+        }
+
+        form a a {
+            display: inline-block;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        main {
+            border: #ccc solid 1px;
+            float: left;
+            width: 45%;
+            padding: 20px;
+        }
+
+        aside {
+            border: #000000 solid 2px;
+            float: left;
+            position: absolute;
+            right: 0;
+            height: calc(90% - 10px);
+            width: 20%;
+            background: #007bff;
+            color: white;
+            padding: 20px;
+        }
+
+        img {
+            width: 170px;
+            height: 170px;
+            margin: 0px;
+            border-radius: 50%;
+            border: 2px solid #020202;
+            position: relative;
+            display: block;
+            float: left;
+            clear: both;
+        }
+
+        button {
+            background-color: #3f8f52;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            clear: both;
+            margin: 20px 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to My Homepage</h1>
+        <p>Use the menu to select different Stylesheets</p>
+    </header>
+    <form>
+        <a href="Stylesheet1.html"style="background-color: #00c851; color: white;">Stylesheet1</a><br>
+        <a href="Stylesheet2.html">Stylesheet2</a><br>
+        <a href="Stylesheet3.html">Stylesheet3</a><br>
+        <a href="Stylesheet4.html">Stylesheet4</a><br>
+        <a href="NoStylesheet.html">No Stylesheet</a><br><br>
+        <img id="avatar" src="https://scontent.fhan3-5.fna.fbcdn.net/v/t39.30808-1/481238153_1173558084427962_5883927785355090563_n.jpg?stp=c0.285.720.720a_dst-jpg_s200x200_tt6&_nc_cat=104&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeHu8_aZDPdMVsXzEdl-oiJzRhfcxBeZ4NVGF9zEF5ng1S25VqL4w7-IRRG_uWoxj6M_Mbv6hEauw56v78Q_z25e&_nc_ohc=wQfj9c6BM8gQ7kNvgE50wvW&_nc_oc=Adn5gzbPbNyW99fWqK2WYE-OPKuIAJl5OOg7bZM4ktj-7Uwiz3dnokLN73rOHvEFz2zn75rtjuA_UJYk99zr1ly1&_nc_zt=24&_nc_ht=scontent.fhan3-5.fna&_nc_gid=ZyEsnj0mm4X5oxivZeeX_g&oh=00_AYH7P8GcHf4VKJYrqv8dnKrkO4ONXmqsXZWNFKKPmAoxPA&oe=67F2A561"
+            alt="avatar" style="margin-top: -20px;">
+        <button type="button" onclick="hideImage()">Hide</button>
+        <button type="button" onclick="showImage()">Show</button>
+    </form>
+    <main>
+        <h2>Same Page Different Stylesheets</h2>
+        <p>This is a demonstration of how different stylesheets can change the layout of your HTML page. You can change
+            the layout of this page by selecting different stylesheets in the menu, or by selecting one of the following
+            links:
+            <a href="Stylesheet1.html">Stylesheet1</a>, 
+            <a href="Stylesheet2.html">Stylesheet2</a>, 
+            <a href="Stylesheet3.html">Stylesheet3</a>, 
+            <a href="Stylesheet4.html">Stylesheet4</a>.
+        </p>
+
+        <h3>No Styles</h3>
+        <p>This page uses DIV elements to group different sections of the HTML page. Click here to see how the page
+            looks like with no stylesheet: <a href="Nostylesheet.html">No Stylesheet</a>.</p>
+
+    </main>
+
+    <aside>
+        <h3>Side-Bar</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+            dolore magna aliquam erat volutpat.</p>
+    </aside>
+    <script>
+        function hideImage() {
+            document.getElementById("avatar").style.display = "none";
+        }
+
+        function showImage() {
+            document.getElementById("avatar").style.display = "block";
+        }
+    </script>
+</body>
+
+</html>

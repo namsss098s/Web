@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realistic 2D Fish Animation</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #1a6bb0;
+        }
+        canvas {
+            display: block;
+            background: linear-gradient(to bottom, #1a6bb0 0%, #1a6bb0 50%, #0d4b7a 100%);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="aquarium"></canvas>
+    <script>
+        const canvas = document.getElementById('aquarium');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const fish = {
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            size: 40,
+            speed: 1.5,
+            direction: 1,
+            wiggle: 0,
+            wiggleSpeed: 0.1,
+            targetX: Math.random() * canvas.width,
+            targetY: Math.random() * canvas.height,
+            color: `hsl(${Math.random() * 60 + 20}, 100%, 50%)`,
+            eyeColor: `hsl(${Math.random() * 360}, 100%, 30%)`
+        };
+
+        const bubbles = Array.from({ length: 30 }, () => ({
+            x: Math.random() * canvas.width,
+            y: canvas.height + Math.random() * 100,
+            size: Math.random() * 10 + 5,
+            speed: Math.random() * 2 + 1,
+            opacity: Math.random() * 0.5 + 0.3
+        }));
+
+        const plants = Array.from({ length: 15 }, () => ({
+            x: Math.random() * canvas.width,
+            height: Math.random() * 100 + 50,
+            width: Math.random() * 20 + 10,
+            color: `hsl(${Math.random() * 60 + 100}, 70%, ${Math.random() * 20 + 30}%)`,
+            sway: Math.random() * 0.05
+        }));
+
+        function drawFish() {
+            ctx.save();
+            ctx.translate(fish.x, fish.y);
+            ctx.scale(fish.direction, 1);
+
+            const bodyGradient = ctx.createLinearGradient(-fish.size, 0, fish.size, 0);
+            bodyGradient.addColorStop(0, fish.color);
+            bodyGradient.addColorStop(1, `hsl(${parseInt(fish.color.split(',')[0].split('(')[1])}, 100%, 70%)`);
+
+            ctx.beginPath();
+            ctx.ellipse(0, 0, fish.size, fish.size * 0.4, 0, 0, Math.PI * 2);
+            ctx.fillStyle = bodyGradient;
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.ellipse(fish.size * 0.3, -fish.size * 0.2, fish.size * 0.3, fish.size * 0.1, 0, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.moveTo(-fish.size, 0);
+            ctx.quadraticCurveTo(-fish.size * 1.5, -fish.size * 0.4 + Math.sin(fish.wiggle) * 5, -fish.size * 1.8, 0);
+            ctx.quadraticCurveTo(-fish.size * 1.5, fish.size * 0.4 + Math.sin(fish.wiggle) * 5, -fish.size, 0);
+            ctx.fillStyle = fish.color;
+            ctx.fill();
+
+            ['-0.3', '0.3'].forEach(offset => {
+                ctx.beginPath();
+                ctx.moveTo(fish.size * 0.2, fish.size * offset);
+                ctx.quadraticCurveTo(-fish.size * 0.2, fish.size * offset * 2 + Math.sin(fish.wiggle * 1.5) * 3, fish.size * 0.5, fish.size * offset * 0.5);
+                ctx.fillStyle = 'rgba(255, 200, 100, 0.6)';
+                ctx.fill();
+            });
+
+            ctx.beginPath();
+            ctx.arc(fish.size * 0.5, -fish.size * 0.1, fish.size * 0.1, 0, Math.PI * 2);
+            ctx.fillStyle = fish.eyeColor;
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(fish.size * 0.55, -fish.size * 0.15, fish.size * 0.03, 0, Math.PI * 2);
+            ctx.fillStyle = 'white';
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(fish.size * 0.6, 0, fish.size * 0.08, 0, Math.PI);
+            ctx.strokeStyle = 'black';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+
+            ctx.restore();
+        }
+
+        function drawBubbles() {
+            bubbles.forEach(bubble => {
+                ctx.beginPath();
+                ctx.arc(bubble.x, bubble.y, bubble.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${bubble.opacity})`;
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.arc(bubble.x - bubble.size * 0.3, bubble.y - bubble.size * 0.3, bubble.size * 0.2, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+                ctx.fill();
+
+                bubble.y -= bubble.speed;
+                bubble.x += Math.sin(bubble.y * 0.05) * 0.5;
+
+                if (bubble.y < -bubble.size) {
+                    bubble.y = canvas.height + Math.random() * 20;
+                    bubble.x = Math.random() * canvas.width;
+                }
+            });
+        }
+
+        function drawPlants() {
+            plants.forEach(plant => {
+                const sway = Math.sin(Date.now() * plant.sway) * 10;
+
+                ctx.save();
+                ctx.translate(plant.x, canvas.height);
+
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.quadraticCurveTo(sway, -plant.height * 0.5, sway, -plant.height);
+                ctx.strokeStyle = `hsl(120, 60%, 30%)`;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                for (let i = 0; i < 5; i++) {
+                    const yPos = -plant.height * (i / 5);
+                    const leafWidth = plant.width * (1 - i / 10);
+
+                    ctx.beginPath();
+                    ctx.ellipse(sway * (1 - i / 5), yPos, leafWidth, plant.width * 0.3, Math.PI / 4 + sway * 0.01, 0, Math.PI * 2);
+                    ctx.fillStyle = plant.color;
+                    ctx.fill();
+                }
+
+                ctx.restore();
+            });
+        }
+
+        function drawSand() {
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height);
+
+            for (let x = 0; x < canvas.width; x += 20) {
+                ctx.lineTo(x, canvas.height - 20 + Math.sin(x * 0.02 + Date.now() * 0.001) * 5);
+            }
+
+            ctx.lineTo(canvas.width, canvas.height);
+            ctx.closePath();
+
+            const sandGradient = ctx.createLinearGradient(0, canvas.height - 50, 0, canvas.height);
+            sandGradient.addColorStop(0, '#e6c88c');
+            sandGradient.addColorStop(1, '#c2a476');
+
+            ctx.fillStyle = sandGradient;
+            ctx.fill();
+        }
+
+        function updateFish() {
+            fish.wiggle += fish.wiggleSpeed;
+
+            if (Math.random() < 0.005 || fish.x < fish.size || fish.x > canvas.width - fish.size) {
+                fish.direction *= -1;
+            }
+
+            if (Math.random() < 0.02) {
+                fish.targetX = Math.random() * canvas.width;
+                fish.targetY = Math.random() * (canvas.height - 100) + 50;
+            }
+
+            const dx = fish.targetX - fish.x;
+            const dy = fish.targetY - fish.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance > 10) {
+                fish.x += (dx / distance) * fish.speed;
+                fish.y += (dy / distance) * fish.speed * 0.5;
+            }
+
+            fish.direction = dx > 0 ? 1 : -1;
+            fish.x = Math.max(fish.size, Math.min(canvas.width - fish.size, fish.x));
+            fish.y = Math.max(fish.size, Math.min(canvas.height - fish.size - 30, fish.y));
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            drawSand();
+            drawPlants();
+            drawBubbles();
+            updateFish();
+            drawFish();
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>

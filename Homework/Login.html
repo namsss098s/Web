@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Add the following CSS code to the head tag of the HTML file: -->
+    <style>
+        body {
+            background: linear-gradient(120deg, #3498db, #8e44ad);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: white;
+            padding: 25px 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;}
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            border-color: #667eea;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #667eea;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background: #5555d6;
+        }
+        .link {
+            margin-top: 10px;
+        }
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .error {
+            color: red;
+            font-size: 15px;
+            margin-top: 5px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2 id ="form-title">Login</h2>
+        <!--Form login-->
+        <form id ="login-form">
+            <div class = "form-group">
+                <label for="login-email">Username</label>
+                <input type="email" id="login-email" placeholder="Username or Email">
+                <span class="error"></span>
+            </div>
+            <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" placeholder="Password">
+                <span class="error"></span>
+            </div>
+            <button type="submit">Login</button>
+            <p>Don't have an account? <a class href="#"onclick="showForm('register')">Register</a></p>
+            <p class = "link"><a href="#"
+                onclick="showForm('forgot')">Forgot your password?</a></p>
+        </form>
+        <!--Form register-->
+        <form id = register-form class="hidden">
+            <div class="form-group">
+                <label for="register-email">Email</label>
+                <input type="email" id="register-email" placeholder="Email">
+                <span class="error"></span>
+            </div>
+            <div>
+                <label for="register-password">Password</label>
+                <input type="password" id="register-password" placeholder="Password">
+                <span class="error"></span>
+            </div>
+            <button type="submit">Register</button>
+            <p>Already have an account? <a class ="link" href="#"onclick="showForm('login')">Login</a></p>
+        </form>
+        <!--Form forgot-->
+        <form id=forgot-form class="hidden">
+            <div class="form-group">
+                <label for="forgot-email">Email</label>
+                <input type="email" id="forgot-email" placeholder="Email">
+                <span class="error"></span>
+            </div>
+            <button type="submit">Send</button>
+            <p class="link"><a href="#"
+                onclick="showForm('login')">Back to login</a></p>
+        </form>
+    </div>
+    <script>
+        function showForm(formType) {
+            document.getElementById('login-form').classList.add('hidden');
+            document.getElementById('register-form').classList.add('hidden');
+            document.getElementById('forgot-form').classList.add('hidden');
+            document.getElementById(formType + '-form').classList.remove('hidden');
+            document.getElementById('form-title').innerText = formType.charAt(0).toUpperCase() + formType.slice(1);
+            if (formType === 'forgot') {
+                document.getElementById('forgot-form').classList.remove('hidden');
+                document.getElementById('form-title').innerText = 'Forgot your password?';
+            }
+            else if (formType === 'register') {
+                document.getElementById('register-form').classList.remove('hidden');
+                document.getElementById('form-title').innerText = 'Register';
+            }
+            else {
+                document.getElementById('login-form').classList.remove('hidden');
+                document.getElementById('form-title').innerText = 'Login';
+            }
+        }
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var email = document.getElementById('login-email').value;
+            var password = document.getElementById('login-password').value;
+            var emailError = document.getElementById('login-email').nextElementSibling;
+            var passwordError = document.getElementById('login-password').nextElementSibling;
+            if (email === '') {
+                emailError.innerText = 'Email is required';
+            }
+            else {
+                emailError.innerText = '';
+            }
+            if (password === '') {
+                passwordError.innerText = 'Password is required';
+            }
+            else {
+                passwordError.innerText = '';
+            }
+        });
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var email = document.getElementById('register-email').value;
+            var password = document.getElementById('register-password').value;
+            var emailError = document.getElementById('register-email').nextElementSibling;
+            var passwordError = document.getElementById('register-password').nextElementSibling;
+            if (email === '') {
+                emailError.innerText = 'Email is required';
+            }
+            else {
+                emailError.innerText = '';
+            }
+            if (password === '') {
+                passwordError.innerText = 'Password is required';
+            }
+            else {
+                passwordError.innerText = '';
+            }
+        });
+        document.getElementById('forgot-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var email = document.getElementById('forgot-email').value;
+            var emailError = document.getElementById('forgot-email').nextElementSibling;
+            if (email === '') {
+                emailError.innerText = 'Email is required';
+            }
+            else {
+                emailError.innerText = '';
+            }
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylesheet 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: none;
+            color: #0056b3;
+            padding: 20px;
+            text-align: left;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+
+        form li {
+            display: inline-block;
+            width: 10%;
+            text-align: left;
+            background: #f1f1f1;
+            color: #000000;
+            margin-bottom: 10px;
+            font-weight: bold;
+            border: #ccc solid 1px;
+            border-radius: 10px;
+            padding: 7px;
+        }
+
+        header form li:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        main h2 {
+            color: #007bff;
+        }
+
+        .sidebar {
+            background-color: #e9ecef;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .sidebar h4 {
+            margin-top: 0;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to My Homepage</h1>
+        <p>Use the menu to select different Stylesheets</p>
+        <form>
+            <li><a href="Stylesheet1.html">Stylesheet1</a></li>
+            <li><a href="Stylesheet2.html">Stylesheet2</a></li>
+            <li style="background-color: #00c851; color: white;"><a href="stylesheet3.html">Stylesheet3</a></li>
+            <li><a href="stylesheet4.html">Stylesheet4</a></li>
+            <li><a href="Nostylesheet.html">Nostylesheet</a></li>
+        </form>
+    </header>
+    <main>
+        <h2>Same Page Different Stylesheets</h2>
+        <p>
+            This is a demonstration of how different stylesheets can change the layout of your HTML page.
+            You can change the layout of this page by selecting different stylesheets in the menu, or by selecting one
+            of the following links:
+            <a href="Stylesheet1.html">Stylesheet1</a>,
+            <a href="Stylesheet2.html">Stylesheet2</a>,
+            <a href="Stylesheet3.html">Stylesheet3</a>,
+            <a href="Stylesheet4.html">Stylesheet4</a>.
+        </p>
+        <h3>No Styles</h3>
+        <p>
+            This page uses DIV elements to group different sections of the HTML page.
+            Click here to see how the page looks like with no stylesheet:
+            <a href="Nostylesheet.html">No Stylesheet</a>.
+        </p>
+        <div class="sidebar">
+            <h4>Side-Bar</h4>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat.</p>
+        </div>
+        <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+            dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
+            suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
+            vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et
+            accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait
+            nulla facilisi.
+        </p>
+    </main>
+    <script>
+        function changeStylesheet(stylesheet) {
+            document.querySelector('link[rel="Stylesheet"]').href = stylesheet;
+        }
+    </script>
+</body>
+
+</html>
+
+</html>

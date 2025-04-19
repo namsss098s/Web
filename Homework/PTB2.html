@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                background: linear-gradient(120deg, #3498db, #8e44ad);
+                font-family: Arial, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+            .form-container {
+                background-color: white;
+                padding: 25px 30px;
+                border-radius: 10px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+                width: 100%;
+                max-width: 500px;
+                text-align: center;
+            }
+            h1 {
+                margin-bottom: 20px;
+                color: #333;
+            }
+            label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+                color: #555;
+            }
+            input[type="number"], input[type="text"] {
+                width: calc(100% - 20px);
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                outline: none;
+            }
+            button {
+                width: calc(50% - 10px);
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+                background-color: #3498db;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #2980b9;
+            }
+            button[type="reset"] {
+                background-color: #e74c3c;
+            }
+            button[type="reset"]:hover {
+                background-color: #c0392b;
+            }
+            .form-container form label {
+                text-align: left;
+                width: 100%;
+            }
+            #d {
+                background-color: burlywood;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="form-container">
+            <h1>Tính Phương Trình Bậc Hai</h1>
+            <form>
+                <label for="a">Nhập a:</label>
+                <input type="number" id="a" name="a" required><br><br>
+
+                <label for="b">Nhập b:</label>
+                <input type="number" id="b" name="b" required><br><br>
+
+                <label for="c">Nhập c:</label>
+                <input type="number" id="c" name="c" required><br><br>
+
+                <label for="d">Kết quả:</label>
+                <input type="text" id="d" name="d" readonly><br><br>
+
+                <button type="submit">Tính</button>
+
+                <button type="reset">Nhập lại</button><br><br>
+
+            </form>
+        </div>
+        <script>
+            document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const a = parseFloat(document.getElementById('a').value);
+            const b = parseFloat(document.getElementById('b').value);
+            const c = parseFloat(document.getElementById('c').value);
+            const dField = document.getElementById('d');
+
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                alert('Vui lòng nhập đầy đủ và đúng các giá trị a, b và c.');
+                return;
+            }
+
+            if (a === 0) {
+                if (b === 0) {
+                dField.value = c === 0 ? 'Vô số nghiệm' : 'Vô nghiệm';
+                } else {
+                const result = -c / b;
+                dField.value = `Nghiệm: ${result.toFixed(2)}`;
+                }
+            } else {
+                const delta = b * b - 4 * a * c;
+
+                if (delta < 0) {
+                dField.value = 'Vô nghiệm';
+                } else if (delta === 0) {
+                const result = -b / (2 * a);
+                dField.value = `Nghiệm kép: ${result.toFixed(2)}`;
+                } else {
+                const x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                const x2 = (-b - Math.sqrt(delta)) / (2 * a);
+                dField.value = `x1: ${x1.toFixed(2)}, x2: ${x2.toFixed(2)}`;
+                }
+            }
+            });
+        </script>
+    </body>
+</html>

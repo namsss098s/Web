@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="main.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Portfolio</div>
+    <div class="menu-toggle" aria-label="Toggle navigation menu" role="button">☰</div>
+
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact me</a>
+    </div>
+
+    <a href="#contact" class="hire-btn">Hire me</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="about" class="hero">
+    <h1>Hi, I'm a Webflow Developer & UI/UX Designer</h1>
+    <p>
+      I create beautiful, responsive websites and applications that provide great user experiences.
+      Let's build something amazing together!
+    </p>
+    <a href="#projects" class="cta-btn">See my work</a>
+  </header>
+
+  <!-- Skills Section -->
+  <section class="skills">
+    <div class="skill-item">Framer</div>
+    <div class="skill-item">Webflow</div>
+    <div class="skill-item">VSCode</div>
+    <div class="skill-item">HTML</div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="experience">
+    <h2 class="section-title">My Experience</h2>
+    <div class="experience-grid">
+
+      <!-- Webflow Developer -->
+      <article class="experience-card">
+        <div class="exp-header">
+          <h3>Webflow Developer</h3>
+          <span class="exp-date">2022 - Present</span>
+        </div>
+        <span class="exp-company">Creative Digital Agency</span>
+        <ul class="exp-description">
+          <li>Built 30+ responsive websites using Webflow CMS and custom code</li>
+          <li>Developed reusable component library saving 40% development time</li>
+          <li>Integrated Stripe, Memberstack and other third-party APIs</li>
+        </ul>
+        <div class="exp-skills">
+          <span>Webflow</span>
+          <span>HTML/CSS</span>
+          <span>JavaScript</span>
+        </div>
+        <a href="#webflow-projects">View Projects →</a>
+      </article>
+
+      <!-- UI/UX Designer -->
+      <article class="experience-card">
+        <div class="exp-header">
+          <h3>UI/UX Designer</h3>
+          <span class="exp-date">2020 - 2022</span>
+        </div>
+        <span class="exp-company">Tech Startup Inc.</span>
+        <ul class="exp-description">
+          <li>Designed and prototyped 15+ interactive apps using Framer</li>
+          <li>Conducted user testing sessions with 50+ participants</li>
+          <li>Created design systems for consistent brand experiences</li>
+        </ul>
+        <div class="exp-skills">
+          <span>Framer</span>
+          <span>Figma</span>
+          <span>Prototyping</span>
+        </div>
+        <a href="#framer-projects">View Case Studies →</a>
+      </article>
+
+      <!-- Frontend Developer -->
+      <article class="experience-card">
+        <div class="exp-header">
+          <h3>Frontend Developer</h3>
+          <span class="exp-date">2018 - 2020</span>
+        </div>
+        <span class="exp-company">Digital Solutions LLC</span>
+        <ul class="exp-description">
+          <li>Developed 20+ websites using HTML/CSS and vanilla JavaScript</li>
+          <li>Optimized sites for performance (90+ Lighthouse scores)</li>
+          <li>Mentored junior developers in VSCode workflows</li>
+        </ul>
+        <div class="exp-skills">
+          <span>HTML/CSS</span>
+          <span>VSCode</span>
+          <span>Git</span>
+        </div>
+        <a href="#code-projects">See Code Examples →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <h2 class="section-title">Some Featured Projects</h2>
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <article class="project-card">
+        <h3>Minimal Portfolio (Webflow)</h3>
+        <div class="project-badge">Webflow</div>
+        <p class="project-description">
+          A responsive portfolio template built with Webflow CMS, featuring smooth animations and 100+ cloneable components.
+        </p>
+        <div class="project-stats">
+          <span>★ 1.2k clones</span>
+          <span>🚀 3.8k views</span>
+        </div>
+        <a href="#" class="project-link">Clone on Webflow →</a>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project-card">
+        <h3>Travel App Prototype (Framer)</h3>
+        <div class="project-badge">Framer</div>
+        <p class="project-description">
+          High-fidelity interactive prototype for a travel booking app with 45+ screens and micro-interactions.
+        </p>
+        <div class="project-stats">
+          <span>✏️ 12 components</span>
+          <span>🔄 8 user flows</span>
+        </div>
+        <a href="#" class="project-link">View Prototype →</a>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project-card">
+        <h3>Neon UI Kit (HTML/CSS)</h3>
+        <div class="project-badge">VSCode</div>
+        <div class="project-badge">HTML</div>
+        <p class="project-description">
+          Open-source collection of 25+ customizable UI components with pure CSS animations.
+        </p>
+        <div class="project-stats">
+          <span>⭐ 850 GitHub stars</span>
+          <span>📦 2.1k downloads</span>
+        </div>
+        <a href="#" class="project-link">View on GitHub →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials">
+    <h2 class="section-title">Client Testimonials</h2>
+    <div class="testimonial-grid">
+
+      <blockquote class="testimonial-card">
+        <h4>Sarah Johnson</h4>
+        <p class="position">CEO, TechNova Solutions</p>
+        <p>"Working with this developer was a game-changer for our startup. They delivered our mobile app ahead of schedule with flawless functionality."</p>
+      </blockquote>
+
+      <blockquote class="testimonial-card">
+        <h4>Michael Chen</h4>
+        <p class="position">Creative Director, PixelPerfect Agency</p>
+        <p>"Clean, responsive websites that exceed client expectations. A true professional!"</p>
+      </blockquote>
+
+      <blockquote class="testimonial-card">
+        <h4>Emily Rodriguez</h4>
+        <p class="position">E-commerce Manager, TrendStyle</p>
+        <p>"Our conversion rates increased by 40% after the redesign. SEO practices boosted our traffic significantly."</p>
+      </blockquote>
+
+      <blockquote class="testimonial-card">
+        <h4>David Wilson</h4>
+        <p class="position">CTO, Global Enterprises</p>
+        <p>"Reliable and technically brilliant. Helped modernize our legacy systems with zero downtime."</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="contact-container">
+      <div class="contact-content">
+        <h2 class="section-title">Let's Build Something Amazing</h2>
+        <p class="contact-subtitle">
+          Have a project in mind or want to discuss opportunities? I'm currently available for freelance or full-time work.
+        </p>
+
+        <!-- Contact Options -->
+        <div class="contact-methods">
+          <div class="contact-card">
+            <div class="contact-icon">✉️</div>
+            <h3>Email Me</h3>
+            <a href="mailto:namsss098s@gmail.com" class="contact-link">namsss098s@gmail.com</a>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">📅</div>
+            <h3>Book a Call</h3>
+            <a href="https://calendly.com/yourname" target="_blank" rel="noopener noreferrer" class="contact-link">Schedule a meeting</a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+          <h3>Or Send a Direct Message</h3>
+          <form>
+            <div class="form-group">
+              <input type="text" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Your Email" required />
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Tell me about your project..." rows="4" required></textarea>
+            </div>
+            <button type="submit" class="cta-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="social-links">
+      <a href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter" />
+      </a>
+      <a href="https://linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" />
+      </a>
+      <a href="https://github.com" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" />
+      </a>
+    </div>
+    <p class="copyright">
+      &copy; 2025 My Portfolio. All rights reserved.
+    </p>
+  </footer>
+</body>
+</html>

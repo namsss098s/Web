@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #333;
+        }
+        .animated-header {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: colorChange 5s infinite alternate, moveHorizontal 6s infinite ease-in-out;
+            position: relative;
+            white-space: nowrap;
+            padding: 0 20px;
+        }
+        @keyframes colorChange { 
+            0% { color: #ff0000; }
+            20% { color: #ffff00; }
+            40% { color: #00ff00; }
+            60% { color: #00ffff; }
+            80% { color: #0000ff; }
+            100% { color: #ff00ff; }
+        }
+        @keyframes moveHorizontal {
+            0%, 100% { transform: translateX(-20px); }
+            50% { transform: translateX(20px); }
+        }
+        .calculator {
+            background-color: #666;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            width: 300px;
+        }
+        .display {
+            background-color: #a8d5a8;
+            border-radius: 5px;
+            height: auto;
+            margin-bottom: 10px;
+            text-align: right;
+            padding: 10px;
+            font-size: 1.5em;
+            color: #333;
+            border: none;
+            width: calc(100% - 20px);
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            position: relative;
+        }
+        .button {
+            background-color: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            height: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: transform 0.1s, background-color 0.2s;
+            user-select: none;
+            touch-action: none;
+        }
+        .button.operator {
+            background-color: #6ba4d9;
+        }
+        .button.equal {
+            background-color: #6ba4d9;
+        }
+        .button:active {
+            transform: scale(0.95);
+        }
+        .button.dragging {
+            position: absolute;
+            z-index: 10;
+            opacity: 0.8;
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            cursor: grabbing;
+        }
+        .button.highlight {
+            background-color: #666;
+            border: 2px dashed #fff;
+        }
+        .hold-timer {
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background-color: rgba(255,255,255,0.3);
+            bottom: 0;
+            left: 0;
+            border-radius: 0 0 5px 5px;
+            overflow: hidden;
+        }
+        .hold-progress {
+            height: 100%;
+            width: 0%;
+            background-color: #6ba4d9;
+            transition: width 2s linear;
+        }
+    </style>
+</head>
+<body>
+    <form class="calculator">
+        <h1><div class="animated-header">Trần Hoàng Nam</div></h1>
+        <input type="text" id="display" class="display" placeholder="0" readonly>
+        <div class="buttons" id="buttonsGrid">
+            <button type="button" class="button" data-value="7"><span>7</span><div class="hold-timer"><div class="hold-progress"></div></div></button>
+            <button type="button" class="button" data-value="8"><span>8</span><div class="hold-timer"><div class="hold-progress"></div></div></button>
+            <button type="button" class="button" data-value="9"><span>9</span><div class="hold-timer"><div class="hold-progress"></div></div></button>
+            <button type="button" class="button operator" data-value="/">÷</button>
+            <button type="button" class="button" data-value="4"><span>4</span><div class="hold-timer"><div class="hold-progress"></div></div></button>
+            <button type="button" class="button" data-value="5"><span>5</span><div class="hold-timer"><div class="hold-progress"></div></div></button>
+            <button type="button" class="button" data-value="6"><span>6</span><div class="hold-timer"><div class="hold-progress"></div></div></button>
+            <button type="button" class="button operator" data-value="*">×</button>
+            <button type="button" class="button" data-value="1"><span>1</span><div class="hold-timer"><div class="hold-progress"></div></div></button>
+            <button type="button" class="button" data-value="2"><span>2</span><div class="hold-timer"><div class="hold-progress"></div></div></button>
+            <button type="button" class="button" data-value="3"><span>3</span><div class="hold-timer"><div class="hold-progress"></div></div></button>
+            <button type="button" class="button operator" data-value="-">−</button>
+            <button type="button" class="button" data-value="0"><span>0</span><div class="hold-timer"><div class="hold-progress"></div></div></button>
+            <button type="button" class="button clear" data-value="C">C</button>
+            <button type="button" class="button equal" data-value="=">=</button>
+            <button type="button" class="button operator" data-value="+">+</button>
+        </div>
+    </form>
+    <script>
+        let currentInput = '';
+        let operation = null;
+        let previousInput = '';
+        let displayValue = '';
+        let draggedButton = null;
+        let draggedIndex = null;
+        let buttons = [];
+        let holdTimer = null;
+        let isDragging = false;
+        
+        function initializeButtons() {
+            const buttonsGrid = document.getElementById('buttonsGrid');
+            buttons = Array.from(buttonsGrid.children);
+            
+            buttons.forEach((button, index) => {
+                button.dataset.index = index;
+                
+                if (!button.classList.contains('clear') && !button.classList.contains('operator') && !button.classList.contains('equal')) {
+                    button.addEventListener('mousedown', startHold);
+                    button.addEventListener('touchstart', startHold, { passive: false });
+                    button.addEventListener('mouseup', cancelHold);
+                    button.addEventListener('mouseleave', cancelHold);
+                    button.addEventListener('touchend', cancelHold);
+                    button.addEventListener('touchcancel', cancelHold);
+                }
+                
+                button.addEventListener('click', handleButtonClick);
+            });
+        }
+        
+        function startHold(e) {
+            e.preventDefault();
+            if (isDragging) return;
+            
+            const button = e.currentTarget;
+            draggedButton = button;
+            draggedIndex = buttons.indexOf(button);
+            
+            const progressBar = button.querySelector('.hold-progress');
+            progressBar.style.width = '100%';
+            progressBar.style.transition = 'width 2s linear';
+            
+            holdTimer = setTimeout(() => {
+                startDrag(button);
+                progressBar.style.width = '0%';
+            }, 2000);
+        }
+        
+        function cancelHold(e) {
+            if (holdTimer) {
+                clearTimeout(holdTimer);
+                holdTimer = null;
+                
+                if (draggedButton) {
+                    const progressBar = draggedButton.querySelector('.hold-progress');
+                    progressBar.style.width = '0%';
+                    progressBar.style.transition = 'none';
+                }
+            }
+        }
+        
+        function startDrag(button) {
+            isDragging = true;
+            
+            button.classList.add('dragging');
+            
+            document.addEventListener('mousemove', dragButton);
+            document.addEventListener('touchmove', dragButton, { passive: false });
+            document.addEventListener('mouseup', stopDrag);
+            document.addEventListener('touchend', stopDrag);
+        }
+        
+        function dragButton(e) {
+            if (!draggedButton || !isDragging) return;
+            e.preventDefault();
+            
+            const clientX = e.clientX || e.touches[0].clientX;
+            const clientY = e.clientY || e.touches[0].clientY;
+            
+            draggedButton.style.left = `${clientX - draggedButton.offsetWidth / 2}px`;
+            draggedButton.style.top = `${clientY - draggedButton.offsetHeight / 2}px`;
+            
+            buttons.forEach(button => {
+                if (button !== draggedButton && !button.classList.contains('operator') && !button.classList.contains('equal')) {
+                    const rect = button.getBoundingClientRect();
+                    if (
+                        clientX > rect.left && clientX < rect.right &&
+                        clientY > rect.top && clientY < rect.bottom
+                    ) {
+                        button.classList.add('highlight');
+                    } else {
+                        button.classList.remove('highlight');
+                    }
+                }
+            });
+        }
+        
+        function stopDrag(e) {
+            if (!isDragging) return;
+            
+            const highlightedButton = document.querySelector('.button.highlight:not(.dragging)');
+            
+            if (highlightedButton) {
+                const dropIndex = buttons.indexOf(highlightedButton);
+                
+                [buttons[draggedIndex], buttons[dropIndex]] = [buttons[dropIndex], buttons[draggedIndex]];
+                
+                const buttonsGrid = document.getElementById('buttonsGrid');
+                buttonsGrid.innerHTML = '';
+                buttons.forEach(button => {
+                    button.style.left = '';
+                    button.style.top = '';
+                    button.classList.remove('dragging', 'highlight');
+                    buttonsGrid.appendChild(button);
+                });
+            } else {
+                draggedButton.style.left = '';
+                draggedButton.style.top = '';
+                draggedButton.classList.remove('dragging');
+            }
+            
+            buttons.forEach(button => button.classList.remove('highlight'));
+            
+            document.removeEventListener('mousemove', dragButton);
+            document.removeEventListener('touchmove', dragButton);
+            document.removeEventListener('mouseup', stopDrag);
+            document.removeEventListener('touchend', stopDrag);
+            
+            draggedButton = null;
+            draggedIndex = null;
+            isDragging = false;
+            if (holdTimer) {
+                clearTimeout(holdTimer);
+                holdTimer = null;
+            }
+        }
+        
+        function handleButtonClick(e) {
+            if (isDragging) {
+                e.preventDefault();
+                e.stopPropagation();
+                return;
+            }
+            
+            const value = this.dataset.value;
+            
+            if (!isNaN(value) || value === '0') {
+                appendNumber(value);
+            } else if (value === 'C') {
+                clearDisplay();
+            } else if (value === '=') {
+                calculate();
+            } else {
+                appendOperator(value);
+            }
+        }
+        
+        function appendNumber(number) {
+            currentInput += number;
+            displayValue += number;
+            document.getElementById('display').value = displayValue;
+        }
+        
+        function appendOperator(op) {
+            if (currentInput === '') return;
+            
+            if (operation !== null) {
+                calculate();
+            }
+            
+            operation = op;
+            previousInput = currentInput;
+            displayValue += op;
+            document.getElementById('display').value = displayValue;
+            currentInput = '';
+        }
+        
+        function clearDisplay() {
+            currentInput = '';
+            previousInput = '';
+            operation = null;
+            displayValue = '';
+            document.getElementById('display').value = '';
+        }
+        
+        function calculate() {
+            if (operation === null || currentInput === '' || previousInput === '') return;
+            
+            const prev = parseFloat(previousInput);
+            const curr = parseFloat(currentInput);
+            let result;
+            
+            switch (operation) {
+                case '+':
+                    result = prev + curr;
+                    break;
+                case '-':
+                    result = prev - curr;
+                    break;
+                case '*':
+                    result = prev * curr;
+                    break;
+                case '/':
+                    if (curr === 0) {
+                        alert('Error: Division by zero is not allowed.');
+                        clearDisplay();
+                        return;
+                    }
+                    result = prev / curr;
+                    break;
+                default:
+                    return;
+            }
+            
+            displayValue = result.toString();
+            currentInput = result.toString();
+            operation = null;
+            previousInput = '';
+            document.getElementById('display').value = displayValue;
+        }
+        
+        window.addEventListener('DOMContentLoaded', initializeButtons);
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed;
+        }
+        th, td {
+            border: 1px solid #000;
+            text-align: center;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        td {
+            background-color: #fff;
+        }
+        tr:nth-child(odd) td {
+            background-color: rgb(255, 251, 0);
+        }
+        
+        td[style*="color:red"] {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <th>No.</th>
+                <th style="color: red;"><u>Name</u></th>
+                <th>Age</th>
+                <th style="color: red;">Class</th>
+                <th style="background-color: rgb(255, 251, 0);">Time</th>
+                <th>Gender</th>
+                <th style="color: red;background-color: rgb(255, 251, 0);">Note</th>
+                <th>Link</th>
+            </tr>
+            
+            <tr>
+                <td>1</td>
+                <td> Nam</td>
+                <td> 21</td>
+                <td> DCIT</td>
+                <td> 7:00-11:00</td>
+                <td rowspan="2">
+                    <select style="border: none;">
+                        <option value="Man">Man</option>
+                        <option value="Woman">Woman</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </td>
+                <td> lm01</td>
+                <td><a href="#"onclick="showImages()"> Click here!</td>
+            </tr>
+            
+            <tr>
+                <td>2</td>
+                <td> Nam</td>
+                <td> 21</td>
+                <td> DCIT</td>
+                <td> 7:00-11:00</td>
+                <td> lm02</td>
+                <td> Click here!</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td> Nam</td>
+                <td> 21</td>
+                <td> DCIT</td>
+                <td> 7:00-11:00</td>
+                <td> Nam</td>
+                <td> lm03</td>
+                <td> Click here!</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td> Nam</td>
+                <td rowspan="3" style="background-color: deepskyblue;"><u><b>Show</b></u></td>
+                <td> DCIT</td>
+                <td> 7:00-11:00</td>
+                <td> Nam</td>
+                <td> lm04</td>
+                <td> Click here!</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td> Nam</td>
+                <td> DCIT</td>
+                <td> 7:00-11:00</td>
+                <td> Nam</td>
+                <td> lm05</td>
+                <td> Click here!</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td> Nam</td>
+                <td> DCIT</td>
+                <td rowspan="3" colspan="2" style=color:red><b>Hide</b></td>
+                <td> lm06</td>
+                <td> Click here!</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td> Nam</td>
+                <td> 21</td>
+                <td> DCIT</td>
+
+                <td> lm07</td>
+                <td> Click here!</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Nam</td>
+                <td>21</td>
+                <td>DCIT</td>
+                <td> lm08</td>
+                <td> Click here!</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Nam</td>
+                <td>21</td>
+                <td>DCIT</td>
+                <td> 7:00-11:00</td>
+                <td> Nam</td>
+                <td> lm09</td>
+                <td> Click here!</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
